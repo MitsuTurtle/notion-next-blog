@@ -1,3 +1,4 @@
+import { BlockType } from 'notion-block-renderer';
 import { ParsedUrlQuery } from 'querystring';
 import { ReactNode } from 'react';
 
@@ -16,10 +17,15 @@ export type PageProps = {
 };
 
 export type CardProps = { page: PageType };
-export type ArticleProps = CardProps;
+export type ArticleProps = {
+  page: PageType;
+  blocks: BlockType[];
+};
 export type ArticleMetaProps = CardProps;
 
 export type IndexProps = { pages: PageType[] };
+
+export type BlockProps = { block: BlockType };
 
 export type Params = ParsedUrlQuery & {
   slug: string;
@@ -60,3 +66,10 @@ export type PageType = {
   // properties: Record<string, any>;
   properties: PropertyType;
 };
+
+// export type BlockType = {
+//   type: string;
+//   heading_1: { rich_text: RichTextType[] };
+//   heading_2: { rich_text: RichTextType[] };
+//   paragraph: { rich_text: RichTextType[] };
+// };
